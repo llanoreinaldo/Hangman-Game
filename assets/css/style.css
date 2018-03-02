@@ -1,0 +1,52 @@
+
+/*footer*/
+
+footer {
+    background: #666;
+    color: #fff;
+    padding: 30px 0;
+    clear: both;
+    border-top: 8px solid #4aaaa5;
+    color: #ccc;
+    font-size: 18px;
+    text-align: center;
+}
+
+
+/*Extra small devices (portrait phones, less than 576px)*/
+
+@media (max-width: 575.98px) {
+    nav {
+        float: left;
+    }
+}
+
+/* Small devices (landscape phones, less than 768px)*/
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+    nav {
+        float: left;
+    }
+}
+
+/*Medium devices (tablets, less than 992px)*/
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    nav {
+        float: left;
+    }
+}
+
+/*Large devices (desktops, less than 1200px)*/
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    nav {
+        float: left;
+    }
+} 
+/* Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+    nav {
+        float: left;
+    }
+}
