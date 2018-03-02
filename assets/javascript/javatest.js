@@ -11,6 +11,9 @@ var blanks = [];
 var randRu;
 var winCounter = 0;
 
+
+
+
 //Randomize word choice
 randRu = puzzlesRuisms[Math.floor(Math.random() * puzzlesRuisms.length)];
 console.log(randRu)
