@@ -20,7 +20,7 @@ introAudio.play("intro")
 
 //Randomize word choice
 var randRu = puzzlesRuisms[Math.floor(Math.random() * puzzlesRuisms.length)];
-console.log(randRu)
+
 
 //Start Game Function
 function startGame() {
@@ -28,9 +28,7 @@ function startGame() {
 
     function underScore() {
         for (var i = 0; i < randRu.length; i++) {
-            console.log(i) //Registers function in console to ensure it works
             underScore.push('_');
-            console.log(underScore); //Registers function in console to ensure it works
             //display's blanks on screen with added space
             document.getElementById('display-blanks').innerHTML = underScore.join(" ")
         }
@@ -74,14 +72,12 @@ document.onkeydown = function (event) {
 
     //variables for letters pressed
     lettersTried = event.key;
-    console.log(lettersTried); //Registers function in console t/o ensure it works
 
     //reset 
 
 
     //checks the letter inside the random word 
     if (randRu.indexOf(lettersTried) > -1) {
-        console.log(randRu.indexOf(lettersTried)); //Registers function in console to ensure it works
 
         for (var i = 0; i < randRu.length; i++) {
             underScore + -"_";
@@ -102,7 +98,6 @@ document.onkeydown = function (event) {
             //  console.log(rightLetters); //Registers function in console to ensure it works
 
             document.getElementById('display-blanks').innerHTML = blanks;
-            console.log(blanks);
             WinLoses();
         }
 
@@ -112,8 +107,6 @@ document.onkeydown = function (event) {
     else {
         wrongLetters.push(lettersTried);
         guessesLeft--; //subtracts from guessesLeft counter
-        console.log(guessesLeft); //Registers function in console to ensure it works
-        console.log(wrongLetters); //Registers function in console to ensure it works
         document.getElementById('guessLeft').innerHTML = guessesLeft;
         document.getElementById('wrongGuesses').innerHTML = wrongLetters;
         WinLoses();

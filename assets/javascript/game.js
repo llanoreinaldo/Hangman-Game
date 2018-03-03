@@ -1,83 +1,115 @@
 //Delcares arrays of words and variables for game
 
-var puzzlesRuisms = ["you better work", "bring back my girls", "snatch game", "fish eleganza", "oh no she better dont", "shantay you stay"];
+var puzzlesRuisms = ["sissythatwalk", "kittygirl", "youbetterwork", "bringbackmygirls", "snatchgame", "drageleganza", "ohnoshebetterdont", "shantayyoustay"];
 var wins = 0;
 var losses = 0;
-var userGuess = [];
-var rightLetters = [];
+var lettersTried = [];
 var wrongLetters = [];
 var guessesLeft = 9
-var blanks = [];
-var randRue;
-var winCounter = 0;
+var rightLetters = [];
+var introAudio = new Audio('assets/sounds/the-time-has-come.mp3')
+var wrongAudio = new Audio('assets/sounds/calm-down-beyonce.mp3');
+var rightAudio = new Audio('assets/sounds/shantay-you-stay.mp3')
+var wonAudio = new Audio('assets/sounds/you-better-work.mp3');
+var lostAudio = new Audio('assets/sounds/sashay-away.mp3')
+var tryAudio = new Audio('assets/sounds/not-today-satan.mp3')
+var underScore = [];
+
+//plays intro theme song
+introAudio.play("intro")
 
 //Randomize word choice
-randRue = puzzlesRuisms[Math.floor(Math.random() * puzzlesRuisms.length)];
-console.log(randRue)
+var randRu = puzzlesRuisms[Math.floor(Math.random() * puzzlesRuisms.length)];
+
 
 //Start Game Function
 function startGame() {
 
 
-    for (var i = 0; i < randRue.length; i++) {
-        console.log(i) //Registers function in console to ensure it works
-        blanks.push('_');
-        console.log(blanks); //Registers function in console to ensure it works
-    }
+    function underScore() {
+        for (var i = 0; i < randRu.length; i++) {
+            underScore.push('_');
+            //display's blanks on screen with added space
+            document.getElementById('display-blanks').innerHTML = underScore.join(" ")
+        }
+    };
 
-    //display's blanks on screen with added space
-    document.getElementById('display-blanks').innerHTML = blanks.join(" ");
-
-    //reset 
-    wrongLetters = [];
-    guessesLeft = 9;
-    rightLetters = [];
     //Displays to HTML
     document.getElementById('guessLeft').innerHTML = guessesLeft;
+
+}
+
+function hangmanImage() {
+    var imgNumber = guessesLeft
+    document.getElementById("image").setAttribute("src", "assets/images/hangmanben" + imgNumber + ".jpg")
+}
+//Game logic for win/losses
+function WinLoses() {
+
+    var rightCounter = 0;
+
+    //counter is cutting off one short of the word... need to FIX!
+    if (rightCounter === randRu.length) {
+        wonAudio.play();
+        wins++;
+        document.getElementById("image").setAttribute("src", "assets/images/Winner.jpg")
+    } else if (guessesLeft > 0) {
+        tryAudio.play();
+        startGame();
+        hangmanImage()
+    } else(guessesLeft === 0); {
+        lostAudio.play()
+        losses++;
+        startGame()
+    }
 }
 
 //Records user guesses and matches against the random word chosen from the array
 
-function WinLoses() {
-    //counter is cutting off one short of the word... need to FIX!
-    if (winCounter === randRue.length) {
-        alert("You're a Winner Baby!");
-        startGame();
-    } else if (guessesLeft === 0) {
-        alert("Sashay Away");
-        startGame();
-    }
-}
-
 //records user key
+
 document.onkeydown = function (event) {
 
-    userGuess = event.key;
-    console.log(userGuess); //Registers function in console to ensure it works
+    //variables for letters pressed
+    lettersTried = event.key;
+
+    //reset 
+
 
     //checks the letter inside the random word 
-    if (randRue.indexOf(userGuess) > -1) {
+    if (randRu.indexOf(lettersTried) > -1) {
 
-        console.log(randRue.indexOf(userGuess)); //Registers function in console to ensure it works
-        for (var i = 0; i < randRue.length; i++) {
-
-            if (randRue[i] === userGuess) {
-
-                blanks[i] = userGuess;
-                console.log(blanks)
-                rightLetters.push(userGuess);
-                console.log(rightLetters); //Registers function in console to ensure it works
-                winCounter++;
-                WinLoses();
-            }
+        for (var i = 0; i < randRu.length; i++) {
+            underScore + -"_";
         }
+
+       // var blanks = underScore
+
+
+        if (randRu[i] === lettersTried) {
+            rightAudio.play()
+            rightCounter++;
+
+            blanks = lettersTried;
+            blanks.push("_");
+            //console.log(blanks) //Registers function in console to ensure it works
+
+            //rightLetters.push(lettersTried);
+            //  console.log(rightLetters); //Registers function in console to ensure it works
+
+            document.getElementById('display-blanks').innerHTML = blanks;
+            WinLoses();
+        }
+
     }
+
     // adds wrong letters to array
     else {
-        wrongLetters.push(userGuess);
+        wrongLetters.push(lettersTried);
         guessesLeft--; //subtracts from guessesLeft counter
-        console.log(guessesLeft); //Registers function in console to ensure it works
-        console.log(wrongLetters); //Registers function in console to ensure it works
-
+        document.getElementById('guessLeft').innerHTML = guessesLeft;
+        document.getElementById('wrongGuesses').innerHTML = wrongLetters;
+        WinLoses();
     }
+
 }
