@@ -18,38 +18,86 @@
 
 
     <!--*my java*-->
-    <!--<script src="assets/javascript/javatest.js"></script>-->
-
+    <script src="assets/javascript/javatest.js"></script>
 </head>
 
 <body>
+    <span id="intro"></span>
+    <img class="card-header img-fluid rounded-circle mx-auto d-block" src="assets/images/new header.png" alt="RuPaul Mainstage Header"></img>
+    <div class="card-body"></div>
+    <div class='container-fluid'>
+        <div class='col'>
+            <div class="container">
+                <div class="jumbotron">
+                    <div class='col-sm'>
+                        <div class="text-dark">
+                            <h1 class="display-4 text-justify">Welcome Hennies! </h1>
+                            <p class='text-justify'>Press any letter to start your engines!</p>
+                            <hr class='my-2'>
+                        </div>
+                        <img class="img-fluid rounded-circle mx-auto responsive" src="assets/images/background4.jpg" alt="RuPaul Mainstage Header"></img>
+                        <img src="assets/images/hangmanben9.jpg" class="img-fluid rounded-circle mx-auto responsive" alt="hangman" id="image">
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class='col'>
+                        <div class="p-3 mb-2 bg-light text-dark">
+                            <h3>
+                                <strong>Word to Guess</strong>
+                            </h3>
+                            <hr class='my-2'>
+                            <h3 class='lead text-center'>
+                                <span id='display-blanks'></span>
+                            </h3>
+                            <br>
 
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <p id="Backdrop">
-                    <img src="assets/images/newbackground2.jpg" alt="RuPaul Mainstage Header">
-                </p>
+                            <hr class='my-2'>
+
+                        <!--</div>
+                        <div class="p-3 mb-2 bg-light text-dark">
+                            <div class="panel-body">
+                                <strong>Letters Tried:</strong>
+                                <span id="numGuesses"></span>
+                            </div>
+                        -->
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <strong>Wrong Guesses:</strong>
+                                    <span id="wrongGuesses"></span>
+                                </div>
+                            </div>
+
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <strong>Guesses Left:</strong>
+                                    <span id="guessLeft"></span>
+                                </div>
+                            </div>
+
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <strong> Win Counter:</strong>
+                                    <span id="wins"></span>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <strong>Loss Counter:</strong>
+                                    <span id="losses"></span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col">
-                <img src="assets/images/hangman1.jpg" alt="hangmanboard">
-                <h1>Hello Hennies!</h1>
-                <br>
-                <p>Welcome to Mama Ru's All Stars "Hang a Queen Game"</p>
-                <p>Press any letter key to get started!</p>
-                <br>
-                <p id="blanks"></p>
-                <br>
-                <p>Wins:</p>
-                <p>Number of Guesses Remaining:</p>
-                <p>Letters Already Guessed:</p>
-
-            </div>
-
         </div>
     </div>
-    </div>
 
+
+    </div>
+    </div>
+    </div>
 
 
     <footer>
