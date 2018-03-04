@@ -19,10 +19,10 @@
 
     <!--*my java*-->
     <script src="assets/javascript/game.js"></script>
+    <span id="intro"></span>
 </head>
 
 <body>
-    <span id="intro"></span>
     <img class="card-header img-fluid rounded-circle mx-auto d-block" src="assets/images/new header.png" alt="RuPaul Mainstage Header"></img>
     <div class="card-body"></div>
     <div class='container-fluid'>
@@ -32,7 +32,9 @@
                     <div class='col-sm'>
                         <div class="text-dark">
                             <h1 class="display-4 text-justify">Welcome Hennies! </h1>
-                            <p class='text-justify'>Press any letter to start your engines!</p>
+                           <p><button id="play" type ="button" class='btn btn-dark' >Start your engines</button> Scroll down and press any key to win</p>
+                            <span id="play"></span>
+
                             <hr class='my-2'>
                         </div>
                         <img class="img-fluid rounded-circle mx-auto responsive" src="assets/images/background4.jpg" alt="RuPaul Mainstage Header"></img>
@@ -47,19 +49,19 @@
                             </h3>
                             <hr class='my-2'>
                             <h3 class='lead text-center'>
-                                <span id='display-blanks'></span>
+                                <span id='blanks'>_ _ _ _ _ _ _ _ _</span>
                             </h3>
                             <br>
 
                             <hr class='my-2'>
 
-                        <!--</div>
+                        </div>
                         <div class="p-3 mb-2 bg-light text-dark">
                             <div class="panel-body">
                                 <strong>Letters Tried:</strong>
                                 <span id="numGuesses"></span>
                             </div>
-                        -->
+                    
                             <div class="panel panel-default">
                                 <div class="panel-body">
                                     <strong>Wrong Guesses:</strong>
