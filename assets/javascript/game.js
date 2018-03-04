@@ -76,7 +76,7 @@ function hangmanImage() {
 
 //adds event listener for user click to start game
 
-DOMplayGame.addEventListner('click', startGame());
+DOMplayGame.addEventListener('click', startGame);
 
 //Records user guesses and matches against the random word chosen from the array
 
