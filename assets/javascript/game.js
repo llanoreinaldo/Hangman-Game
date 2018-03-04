@@ -41,7 +41,7 @@ function startGame() {
     guessesLeft = 9;
     rightLetters = [];
     underScore = [];
-    document.getElementById("image").setAttribute("src", "assets/images/hangmanben9.jpg");
+    document.getElementById("image").setAttribute("src", "assets/images/hangmanben9.JPG");
     document.getElementById("numGuesses").textContent = "Start Guessing";
     introAudio.play();
 
@@ -125,12 +125,12 @@ function checkWrongGuess(letter) {
         DOMguessesLeft.textContent = guessesLeft;
         wrongAudio.play()
     }
-    WinLoses()
+    Losses()
     hangmanImage()
 }
 
 //Game logic for win/losses
-function WinLoses() {
+function Win() {
 
     //counter is cutting off one short of the word... need to FIX!
     if (randRu.tolowerCase() === underScore.join('').tolowerCase()) {
@@ -140,10 +140,12 @@ function WinLoses() {
         DOMwinCounter = wins;
         DOMwordGuess.textContent = randRu
         document.getElementById("image").setAttribute("src", "assets/images/Winner.jpg")
-    } else if (guessesLeft > 0) {
-        userGuess();
-        hangmanImage()
-    } else(guessesLeft === 0); {
+    }
+}
+
+function Losses() {
+
+    if (guessesLeft === 0); {
         lostAudio.play()
         losses++;
         playGame = false;
@@ -152,4 +154,5 @@ function WinLoses() {
         document.getElementById("image").setAttribute("src", "assets/images/loser1.jpg")
 
     }
+    Win()
 }
