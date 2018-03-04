@@ -24,17 +24,18 @@ var DOMwordGuess = document.getElementById('blanks'),
     DOMguessesLeft = document.getElementById('guessLeft'),
     DOMwinCounter = document.getElementById('wins'),
     DOMlossCounter = document.getElementById('losses'),
-    DOMplayGame = document.getElementById('play'),
-    DOMstart = document.getElementById('Start your engines');
-
+    DOMplayGame = document.getElementById('myPlay-button');
 
 //plays intro theme song
 themeAudio.play("intro");
 
+//adds event listener for user click to start game
+DOMplayGame.addEventListener('click', startGame);
+
+
 //Start Game Function
 function startGame() {
     playGame = true;
-    introAudio.play();
     lettersTried = [];
     wrongLetters = [];
     guessesLeft = 9;
@@ -42,7 +43,7 @@ function startGame() {
     underScore = [];
     document.getElementById("image").setAttribute("src", "assets/images/hangmanben9.jpg");
     document.getElementById("numGuesses").textContent = "Start Guessing";
-
+    introAudio.play();
 
     //Randomize word choice
     var randRu = puzzlesRuisms[Math.floor(Math.random() * puzzlesRuisms.length)];
@@ -74,9 +75,6 @@ function hangmanImage() {
     document.getElementById("image").setAttribute("src", "assets/images/hangmanben" + imgNumber + ".jpg");
 }
 
-//adds event listener for user click to start game
-
-DOMplayGame.addEventListener('click', startGame);
 
 //Records user guesses and matches against the random word chosen from the array
 
