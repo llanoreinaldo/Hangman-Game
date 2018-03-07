@@ -18,11 +18,16 @@
 
 
     <!--*my java*-->
-    <script src="assets/javascript/game.js"></script>
-    <span id="intro"></span>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js " integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN "
+        crossorigin="anonymous "></script>
+    
+
 </head>
 
 <body>
+    <audio autoplay>
+        <source src="assets/sounds/rpdr-theme.mp3">
+    </audio>
     <img class="card-header img-fluid rounded-circle mx-auto d-block" src="assets/images/new header.png" alt="RuPaul Mainstage Header"></img>
     <div class="card-body"></div>
     <div class='container-fluid'>
@@ -32,7 +37,7 @@
                     <div class='col-sm'>
                         <div class="text-dark">
                             <h1 class="display-4 text-justify">Welcome Hennies! </h1>
-                            <p>  Start your engines! Then scroll down and press any key to win</p>
+                            <p> Start your engines! Then scroll down and press any key to win</p>
                             <p>
                                 <button id='myPlay-button' class='btn-lg btn-block btn-dark'>Play</button>
                             </p>
@@ -40,7 +45,7 @@
                             <hr class='my-2'>
                         </div>
                         <img class="img-fluid rounded-circle mx-auto responsive" src="assets/images/background4.jpg" alt="RuPaul Mainstage Header"></img>
-                        <img src="assets/images/hangmanben9.jpg" class="img-fluid rounded-circle mx-auto responsive" alt="hangman" id="image">
+                        <img id="image" src="assets/images/hangmanben9.jpg" class="img-fluid rounded-circle mx-auto responsive" alt="hangman">
                     </div>
                 </div>
                 <div class='row'>
@@ -92,11 +97,6 @@
     </div>
 
 
-    </div>
-    </div>
-    </div>
-
-
     <footer>
         <div class=" container ">
             <div class="col ">
@@ -106,13 +106,12 @@
     </footer>
     <!-- Latest compiled and minified JavaScript -->
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js " integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN "
-        crossorigin="anonymous "></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js " integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q "
         crossorigin="anonymous "></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js " integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl "
         crossorigin="anonymous "></script>
-
+        <script src="assets/javascript/game.js"></script>
 </body>
 
 </html>
