@@ -6,7 +6,7 @@ var puzzlesRuisms = ["sissy that walk", "kitty girl", "you better work", "bring 
     playGame = false,
     lettersTried = [],
     wrongLetters = [],
-    guessesLeft = 9,
+    guessesLeft = 8,
     themeAudio = new Audio('assets/sounds/rpdr-theme.mp3'),
     introAudio = new Audio('assets/sounds/start-your-engines.mp3'),
     wrongAudio = new Audio('assets/sounds/calm-down-beyonce.mp3'),
@@ -34,7 +34,7 @@ function startGame() {
     playGame = true;
     lettersTried = [];
     wrongLetters = [];
-    guessesLeft = 9;
+    guessesLeft = 8;
     underScore = [];
     document.getElementById('image').src = "assets/images/hangmanben9.JPG";
     document.getElementById("numGuesses").textContent = "Start Guessing";
@@ -73,34 +73,32 @@ function startGame() {
 
 //sets the base image for hangman game
 function setImage() {
-    if (guessesLeft === 8) {
+    if (guessesLeft === 7) {
         document.getElementById('image').src = "assets/images/hangmanben8.JPG";
     }
-    if (guessesLeft === 7) {
+    if (guessesLeft === 6) {
         document.getElementById('image').src = "assets/images/hangmanben7.JPG";
     }
-    if (guessesLeft === 6) {
+    if (guessesLeft === 5) {
         document.getElementById('image').src = "assets/images/hangmanben6.JPG";
     }
-    if (guessesLeft === 5) {
+    if (guessesLeft === 4) {
         document.getElementById('image').src = "assets/images/hangmanben5.JPG";
     }
-    if (guessesLeft === 4) {
+    if (guessesLeft === 3) {
         document.getElementById('image').src = "assets/images/hangmanben4.JPG";
     }
-    if (guessesLeft === 3) {
+    if (guessesLeft === 2) {
         document.getElementById('image').src = "assets/images/hangmanben3.JPG";
     }
-    if (guessesLeft === 2) {
+    if (guessesLeft === 1) {
         document.getElementById('image').src = "assets/images/hangmanben2.JPG";
     }
-    if (guessesLeft === 1) {
+    if (guessesLeft === 0) {
         document.getElementById('image').src = "assets/images/hangmanben1.JPG";
     }
-    if (guessesLeft === 0) {
-        document.getElementById('image').src = "assets/images/loser1.JPG";
-    }
 }
+
 
 //adds event listener for user click to start game
 DOMplayGame.addEventListener('click', startGame);
@@ -164,7 +162,7 @@ function checkLosses() {
         losses++;
         playGame = false;
         DOMlossCounter = losses;
-
+        document.getElementById('image').src = "assets/images/loser1.JPG";
     }
     Win()
 
