@@ -135,16 +135,15 @@ function checkWrong(letter) {
         DOMwrongGuesses.textContent = wrongLetters.join(' ');
         DOMguessesLeft.textContent = guessesLeft;
         setImage()
-    }
-
-    if (guessesLeft > 1) {
-        wrongAudio.play();
-        win()
-    } else if (guessesLeft === 1) {
-        finalGuessAudio.play();
-        win()
-    } else {
-        checkLosses()
+        if (guessesLeft > 1) {
+            wrongAudio.play();
+            win()
+        } else if (guessesLeft === 1) {
+            finalGuessAudio.play();
+            win()
+        } else {
+            checkLosses()
+        }
     }
 }
 
