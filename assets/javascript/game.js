@@ -98,7 +98,7 @@ function setImage() {
         document.getElementById('image').src = "assets/images/hangmanben1.JPG";
     }
     if (guessesLeft === 0) {
-        document.getElementById('image').src = "assets/images/hangmanbenloser1.JPG";
+        document.getElementById('image').src = "assets/images/loser1.JPG";
     }
 }
 
@@ -153,7 +153,7 @@ function Win() {
         wins++;
         wonAudio.play();
         DOMwinCounter = wins;
-        document.getElementById("image").setAttribute("src", "assets/images/Winner.jpg")
+        document.getElementById('image').src = ("src", "assets/images/Winner.jpg");
     }
 }
 
