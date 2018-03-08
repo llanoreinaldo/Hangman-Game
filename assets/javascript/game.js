@@ -36,7 +36,6 @@ function startGame() {
     wrongLetters = [];
     guessesLeft = 8;
     underScore = [];
-    document.getElementById('image').src = "assets/images/hangmanben9.JPG";
     document.getElementById("numGuesses").textContent = "Start Guessing";
     introAudio.play();
 
@@ -48,7 +47,7 @@ function startGame() {
 
         //pushes blank spaces for random word if there is a space in the word
         if (randRu[i] === " ") {
-            underScore.push('');
+            underScore.push(" ");
         } else {
             underScore.push("_")
 
@@ -74,28 +73,29 @@ function startGame() {
 //sets the base image for hangman game
 function setImage() {
     if (guessesLeft === 7) {
-        document.getElementById('image').src = "assets/images/hangmanben8.JPG";
+        document.getElementById('image2').src = "assets/images/hangmanben8.JPG";
     }
     if (guessesLeft === 6) {
-        document.getElementById('image').src = "assets/images/hangmanben7.JPG";
+        document.getElementById('image2').src = "assets/images/hangmanben7.JPG";
     }
     if (guessesLeft === 5) {
-        document.getElementById('image').src = "assets/images/hangmanben6.JPG";
+        document.getElementById('image2').src = "assets/images/hangmanben6.JPG";
     }
     if (guessesLeft === 4) {
-        document.getElementById('image').src = "assets/images/hangmanben5.JPG";
+        document.getElementById('image2').src = "assets/images/hangmanben5.JPG";
     }
     if (guessesLeft === 3) {
-        document.getElementById('image').src = "assets/images/hangmanben4.JPG";
+        document.getElementById('image2').src = "assets/images/hangmanben4.JPG";
     }
     if (guessesLeft === 2) {
-        document.getElementById('image').src = "assets/images/hangmanben3.JPG";
+        document.getElementById('image2').src = "assets/images/hangmanben3.JPG";
     }
     if (guessesLeft === 1) {
-        document.getElementById('image').src = "assets/images/hangmanben2.JPG";
+        document.getElementById('image2').src = "assets/images/hangmanben2.JPG";
     }
     if (guessesLeft === 0) {
-        document.getElementById('image').src = "assets/images/hangmanben1.JPG";
+        document.getElementById('image2').src = "assets/images/hangmanben1.JPG";
+        document.getElementById('image1').src = "assets/images/loser1.JPG";
     }
 }
 
@@ -105,8 +105,6 @@ DOMplayGame.addEventListener('click', startGame);
 
 
 //Records user guesses and matches against the random word chosen from the array
-
-
 
 //checks the letter inside the random word 
 function userGuess(letter) {
@@ -136,10 +134,18 @@ function checkWrong(letter) {
         wrongLetters.push(letter);
         DOMwrongGuesses.textContent = wrongLetters.join(' ');
         DOMguessesLeft.textContent = guessesLeft;
-        wrongAudio.play()
+        setImage()
     }
-    setImage()
-    checkLosses()
+
+    if (guessesLeft > 1) {
+        wrongAudio.play();
+        win()
+    } else if (guessesLeft === 1) {
+        finalGuessAudio.play();
+        win()
+    } else {
+        checkLosses()
+    }
 }
 
 //Game logic for win/losses
@@ -162,8 +168,73 @@ function checkLosses() {
         losses++;
         playGame = false;
         DOMlossCounter = losses;
-        document.getElementById('image').src = "assets/images/loser1.JPG";
     }
     Win()
 
+}
+
+
+//Keyboard for Mobile and Table versions
+
+function mobileKeys() {
+
+    // Here we are provided an initial array of letters.
+    // Use this array to dynamically create buttons on the screen.
+    var letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+    var main = $("body");
+
+    // Scans DOM tree for buttons
+    var btns = main.find("#buttons");
+
+    // DYNAMICALLY CREATE BUTTONS
+    // =================================================================================
+
+    // 1. Creates a for-loop to iterate through the letters array.
+    for (var i = 0; i < letters.length; i++) {
+
+        // Inside the loop...
+
+        // 2. Creates a variable named "letterBtn" equal to $("<button>");
+        var letterBtn = $("<button>");
+
+        // 3. Then gives each "letterBtn" the following classes: "letter-button" "letter" "letter-button-color".
+        letterBtn.addClass("letter-button letter letter-button-color");
+
+        // 4. Then gives each "letterBtn" a data-attribute called "data-letter".
+        letterBtn.attr("data-letter", letters[i]);
+
+        // 5. Then gives each "letterBtns" a text equal to "letters[i]".
+        letterBtn.text(letters[i]);
+
+        // 6. Finally, append each "letterBtn" to the "#buttons" div (provided).
+        btns.append(letterBtn);
+
+    }
+
+    // Be sure to test that your code works for this major task, before proceeding to the next one!
+
+    // MAJOR TASK #2: ATTACH ON-CLICK EVENTS TO "LETTER" BUTTONS
+    // =================================================================================
+
+    // 7. Create an "on-click" event attached to the ".letter-button" class.
+    btns.on("click", ".letter-button", function () {
+
+        // Inside the on-click event...
+
+        // 8. Create a variable called "MiniKey" and set the variable equal to a new div.
+        var miniKey = $("<div>");
+
+        // 9. Give each "MiniKey" the following classes: "letter".
+        miniKey.addClass("letter");
+
+        // 10. Then chain the following code onto the "fridgeMagnet" variable: .text($(this).attr("data-letter"))
+        // attr acts as both a setter and a getter for attributes depending on whether we supply one argument or two
+        // NOTE: There IS a $(data) jQuery method, but it doesn't do what you'd expect. So just use attr.
+        miniKey.text($(this).attr("data-letter"));
+
+        // 11. Lastly append the fridgeMagnet variable to the "#display" div (provided);
+        // Again you can see we use that find, and once its found we append the item
+        main.find("#display").append(miniKey);
+
+    });
 }
