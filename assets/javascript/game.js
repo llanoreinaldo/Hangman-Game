@@ -73,29 +73,29 @@ function startGame() {
 //sets the base image for hangman game
 function setImage() {
     if (guessesLeft === 7) {
-        document.getElementById('image2').src = "assets/images/hangmanben8.JPG";
+        document.getElementById('imgRight').src = "assets/images/hangmanben8.JPG";
     }
     if (guessesLeft === 6) {
-        document.getElementById('image2').src = "assets/images/hangmanben7.JPG";
+        document.getElementById('imgRight').src = "assets/images/hangmanben7.JPG";
     }
     if (guessesLeft === 5) {
-        document.getElementById('image2').src = "assets/images/hangmanben6.JPG";
+        document.getElementById('imgRight').src = "assets/images/hangmanben6.JPG";
     }
     if (guessesLeft === 4) {
-        document.getElementById('image2').src = "assets/images/hangmanben5.JPG";
+        document.getElementById('imgRight').src = "assets/images/hangmanben5.JPG";
     }
     if (guessesLeft === 3) {
-        document.getElementById('image2').src = "assets/images/hangmanben4.JPG";
+        document.getElementById('imgRight').src = "assets/images/hangmanben4.JPG";
     }
     if (guessesLeft === 2) {
-        document.getElementById('image2').src = "assets/images/hangmanben3.JPG";
+        document.getElementById('imgRight').src = "assets/images/hangmanben3.JPG";
     }
     if (guessesLeft === 1) {
-        document.getElementById('image2').src = "assets/images/hangmanben2.JPG";
+        document.getElementById('imgRight').src = "assets/images/hangmanben2.JPG";
     }
     if (guessesLeft === 0) {
-        document.getElementById('image2').src = "assets/images/hangmanben1.JPG";
-        document.getElementById('image1').src = "assets/images/loser1.JPG";
+        document.getElementById('imgRight').src = "assets/images/hangmanben1.JPG";
+        document.getElementById('imgLeft').src = "assets/images/loser1.JPG";
     }
 }
 

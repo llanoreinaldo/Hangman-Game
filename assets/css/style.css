@@ -12,6 +12,22 @@ footer {
     text-align: center;
 }
 
+.letter-button-color {
+    color: black;
+}
+
+
+#imgLeft {
+    width: 75%;
+    height: auto;
+    padding-bottom: 5px;
+}
+
+#imgRight{
+    width: 75%;
+    height: auto;
+    padding-bottom: 5px;
+}
 
 /*Extra small devices (portrait phones, less than 576px)*/
 
@@ -19,7 +35,6 @@ footer {
     nav {
         float: left;
     }
-    mobileKeys()
 }
 
 /* Small devices (landscape phones, less than 768px)*/
