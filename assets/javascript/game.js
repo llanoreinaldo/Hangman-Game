@@ -175,7 +175,7 @@ function checkLosses() {
 
 
 //Keyboard for Mobile and Table versions
-
+/*
 function mobileKeys() {
 
     // Here we are provided an initial array of letters.
@@ -238,3 +238,4 @@ function mobileKeys() {
 
     });
 }
+*/
