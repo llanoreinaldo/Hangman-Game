@@ -16,3 +16,4 @@
 * Outstanding design issues:
 
     1. Mobile and Table keyboard was not added.
+    2. Need to add a space when the random word array has multiple words in the guess.
