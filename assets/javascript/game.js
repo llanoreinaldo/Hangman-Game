@@ -7,6 +7,8 @@ var puzzlesRuisms = ["sissy that walk", "kitty girl", "you better work", "bring 
     lettersTried = [],
     wrongLetters = [],
     guessesLeft = 8,
+
+    //Audio Files for Site
     themeAudio = new Audio('assets/sounds/rpdr-theme.mp3'),
     introAudio = new Audio('assets/sounds/start-your-engines.mp3'),
     wrongAudio = new Audio('assets/sounds/calm-down-beyonce.mp3'),
@@ -16,17 +18,17 @@ var puzzlesRuisms = ["sissy that walk", "kitty girl", "you better work", "bring 
     tryAudio = new Audio('assets/sounds/not-today-satan.mp3'),
     finalGuessAudio = new Audio('assets/sounds/the-time-has-come.mp3'),
     underScore = [],
-    randRu = '';
+    randRu = '',
 
-//DOM Declarations for hooking into
-var DOMwordGuess = document.getElementById('blanks'),
+    //DOM Declarations for hooking into
+    DOMwordGuess = document.getElementById('blanks'),
     DOMwrongGuesses = document.getElementById('numGuesses'),
     DOMguessesLeft = document.getElementById('guessLeft'),
     DOMwinCounter = document.getElementById('wins'),
     DOMlossCounter = document.getElementById('losses'),
-    DOMplayGame = document.getElementById('myPlay-button');
-
-
+    DOMplayGame = document.getElementById('myPlay-button'),
+    DOMimgRight = document.getElementById('imgRight'),
+    DOMimgLeft = document.getElementById('imgLeft');
 
 
 //Start Game Function
@@ -73,29 +75,29 @@ function startGame() {
 //sets the base image for hangman game
 function setImage() {
     if (guessesLeft === 7) {
-        document.getElementById('imgRight').src = "assets/images/hangmanben8.JPG";
+        DOMimgRight.src = "assets/images/hangmanben8.JPG";
     }
     if (guessesLeft === 6) {
-        document.getElementById('imgRight').src = "assets/images/hangmanben7.JPG";
+        DOMimgRight.src = "assets/images/hangmanben7.JPG";
     }
     if (guessesLeft === 5) {
-        document.getElementById('imgRight').src = "assets/images/hangmanben6.JPG";
+        DOMimgRight.src = "assets/images/hangmanben6.JPG";
     }
     if (guessesLeft === 4) {
-        document.getElementById('imgRight').src = "assets/images/hangmanben5.JPG";
+        DOMimgRight.src = "assets/images/hangmanben5.JPG";
     }
     if (guessesLeft === 3) {
-        document.getElementById('imgRight').src = "assets/images/hangmanben4.JPG";
+        DOMimgRight.src = "assets/images/hangmanben4.JPG";
     }
     if (guessesLeft === 2) {
-        document.getElementById('imgRight').src = "assets/images/hangmanben3.JPG";
+        DOMimgRight.src = "assets/images/hangmanben3.JPG";
     }
     if (guessesLeft === 1) {
-        document.getElementById('imgRight').src = "assets/images/hangmanben2.JPG";
+        DOMimgRight.src = "assets/images/hangmanben2.JPG";
     }
     if (guessesLeft === 0) {
-        document.getElementById('imgRight').src = "assets/images/hangmanben1.JPG";
-        document.getElementById('imgLeft').src = "assets/images/loser1.JPG";
+        DOMimgRight.src = "assets/images/hangmanben1.JPG";
+        DOMimgLeft.src = "assets/images/loser1.JPG";
     }
 }
 
