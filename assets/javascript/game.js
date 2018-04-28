@@ -49,14 +49,14 @@ function startGame() {
 
         //pushes blank spaces for random word if there is a space in the word
         if (randRu[i] === " ") {
-            underScore.push(" ");
+            underScore.push("&nbsp&nbsp&nbsp");
         } else {
             underScore.push("_")
 
         }
     }
     //Displays relevant DOM's to HTML
-    DOMwordGuess.textContent = underScore.join(" ");
+    DOMwordGuess.innerHTML = underScore.join(" ");;
     DOMwrongGuesses.textContent = wrongLetters
     DOMguessesLeft.textContent = guessesLeft;
 
@@ -121,7 +121,7 @@ function userGuess(letter) {
             }
         }
 
-        DOMwordGuess.textContent = underScore.join(' ');
+        DOMwordGuess.innerHTML = underScore.join(" ");
         checkWrong(letter);
 
     } else if (lettersTried.indexOf(letter) > -1) {
@@ -176,7 +176,6 @@ function checkLosses() {
 
 
 //Keyboard for Mobile and Table versions
-/*
 function mobileKeys() {
 
     // Here we are provided an initial array of letters.
@@ -239,4 +238,5 @@ function mobileKeys() {
 
     });
 }
-*/
+
+mobileKeys();
