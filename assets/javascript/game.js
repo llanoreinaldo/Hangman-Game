@@ -33,6 +33,7 @@ var puzzlesRuisms = ["sissy that walk", "kitty girl", "you better work", "bring 
 
 //Start Game Function
 function startGame() {
+    DOMplayGame.style.visibility = "hidden";
     playGame = true;
     lettersTried = [];
     wrongLetters = [];
@@ -159,6 +160,7 @@ function Win() {
         wonAudio.play();
         DOMwinCounter = wins;
         document.getElementById('image').src = ("src", "assets/images/Winner.jpg");
+        DOMplayGame.style.visibility = "visible";
     }
 }
 
