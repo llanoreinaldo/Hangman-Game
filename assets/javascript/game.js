@@ -139,10 +139,10 @@ function checkWrong(letter) {
         setImage()
         if (guessesLeft > 1) {
             wrongAudio.play();
-            win()
+            Win()
         } else if (guessesLeft === 1) {
             finalGuessAudio.play();
-            win()
+            Win()
         } else {
             checkLosses()
         }
